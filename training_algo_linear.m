@@ -5,19 +5,10 @@ clear ; close all; clc
 
 fprintf('Importing data... \n');
 data = load('data_linear.txt');
+
+fprintf('Creating matrices... \n');
 X = data(:, 1:2);
 y = data(:,3);
-
-
-%============== plot data ==============================
-fprintf('Plotting data \n');
-plotData(X,y);
-hold on;
-% Labels and Legend
-xlabel('Exam 1 score')
-ylabel('Exam 2 score')
-legend('Admitted', 'Not admitted')
-hold off;
 
 %============== add interecept parameter ==============================
 
@@ -35,6 +26,7 @@ initial_theta = zeros(n + 1, 1);
 % [cost, grad] = costFunction(initial_theta, X, y, lambda);
 
 %============== optimising using fminunc ==============================
+fprintf('optimising theta vector... \n')
 
 %  Set options for fminunc
 options = optimset('GradObj', 'on', 'MaxIter', 400);
@@ -64,6 +56,7 @@ legend('Admitted', 'Not admitted')
 hold off;
 
 %============== predictions and accuracy ==============================
+fprintf('Algo trained, ready to make predictions... \n')
 
 % Compute accuracy on our training set
 p = predict(theta, X);

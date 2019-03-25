@@ -1,4 +1,4 @@
-function plotDecisionBoundary(theta, X, y)
+function plotBoundary(theta, X, y)
 %plot X and y in a new figure with decision boundaries defined by theta
 % + markers indicate positive results and o markets indicate negative results
 
